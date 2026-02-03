@@ -1,0 +1,162 @@
+/* Textarea Wrapper */
+.ff-textarea-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.ff-textarea-wrapper--full-width {
+  width: 100%;
+}
+
+/* Textarea Header */
+.ff-textarea-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+/* Textarea Label */
+.ff-textarea-label {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.ff-textarea-label__required {
+  color: #ef4444;
+  margin-left: 0.25rem;
+}
+
+/* Textarea Container */
+.ff-textarea-container {
+  position: relative;
+  display: flex;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.ff-textarea-container:focus-within:not(.ff-textarea-container--disabled) {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.ff-textarea-container--disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.ff-textarea-container--sm {
+  font-size: 0.875rem;
+}
+
+.ff-textarea-container--md {
+  font-size: 1rem;
+}
+
+.ff-textarea-container--lg {
+  font-size: 1.125rem;
+}
+
+/* Variants */
+.ff-textarea-container--default {
+  border-color: #d1d5db;
+}
+
+.ff-textarea-container--error {
+  border-color: #ef4444;
+}
+
+.ff-textarea-container--error:focus-within:not(.ff-textarea-container--disabled) {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.ff-textarea-container--success {
+  border-color: #10b981;
+}
+
+.ff-textarea-container--success:focus-within:not(.ff-textarea-container--disabled) {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Textarea Element */
+.ff-textarea {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 0.5rem 0.75rem;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.5;
+  color: #111827;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  resize: vertical;
+}
+
+.ff-textarea::placeholder {
+  color: #9ca3af;
+}
+
+.ff-textarea:disabled {
+  cursor: not-allowed;
+  color: #6b7280;
+  resize: none;
+}
+
+.ff-textarea-container--sm .ff-textarea {
+  padding: 0.375rem 0.625rem;
+}
+
+.ff-textarea-container--lg .ff-textarea {
+  padding: 0.625rem 1rem;
+}
+
+.ff-textarea-container--auto-resize .ff-textarea {
+  resize: none;
+  overflow: hidden;
+  min-height: 2.5rem;
+}
+
+/* Messages */
+.ff-textarea-message {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.ff-textarea-message--error {
+  color: #ef4444;
+}
+
+.ff-textarea-message--helper {
+  color: #6b7280;
+}
+
+/* Character Counter */
+.ff-textarea-count {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.75rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.ff-textarea-count--over {
+  color: #ef4444;
+}
+
+/* Textarea Footer */
+.ff-textarea-footer {
+  display: flex;
+  justify-content: flex-end;
+}

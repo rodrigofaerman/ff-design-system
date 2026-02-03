@@ -1,0 +1,202 @@
+/* Input Wrapper */
+.ff-input-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.ff-input-wrapper--full-width {
+  width: 100%;
+}
+
+/* Input Label */
+.ff-input-label {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.ff-input-label__required {
+  color: #ef4444;
+  margin-left: 0.25rem;
+}
+
+/* Input Container */
+.ff-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.ff-input-container:focus-within:not(.ff-input-container--disabled) {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.ff-input-container--disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.ff-input-container--sm {
+  min-height: 2rem;
+  font-size: 0.875rem;
+}
+
+.ff-input-container--md {
+  min-height: 2.5rem;
+  font-size: 1rem;
+}
+
+.ff-input-container--lg {
+  min-height: 3rem;
+  font-size: 1.125rem;
+}
+
+/* Variants */
+.ff-input-container--default {
+  border-color: #d1d5db;
+}
+
+.ff-input-container--error {
+  border-color: #ef4444;
+}
+
+.ff-input-container--error:focus-within:not(.ff-input-container--disabled) {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.ff-input-container--success {
+  border-color: #10b981;
+}
+
+.ff-input-container--success:focus-within:not(.ff-input-container--disabled) {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Input Element */
+.ff-input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 0.5rem 0.75rem;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.5;
+  color: #111827;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.ff-input::placeholder {
+  color: #9ca3af;
+}
+
+.ff-input:disabled {
+  cursor: not-allowed;
+  color: #6b7280;
+}
+
+.ff-input-container--sm .ff-input {
+  padding: 0.375rem 0.625rem;
+}
+
+.ff-input-container--lg .ff-input {
+  padding: 0.625rem 1rem;
+}
+
+/* Prefix & Suffix */
+.ff-input-prefix,
+.ff-input-suffix {
+  display: flex;
+  align-items: center;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.ff-input-prefix {
+  padding-left: 0.75rem;
+}
+
+.ff-input-suffix {
+  padding-right: 0.75rem;
+}
+
+.ff-input-container--sm .ff-input-prefix {
+  padding-left: 0.625rem;
+}
+
+.ff-input-container--sm .ff-input-suffix {
+  padding-right: 0.625rem;
+}
+
+.ff-input-container--lg .ff-input-prefix {
+  padding-left: 1rem;
+}
+
+.ff-input-container--lg .ff-input-suffix {
+  padding-right: 1rem;
+}
+
+.ff-input-container--has-prefix .ff-input {
+  padding-left: 0.25rem;
+}
+
+.ff-input-container--has-suffix .ff-input {
+  padding-right: 0.25rem;
+}
+
+/* Clear Button */
+.ff-input-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: #6b7280;
+  background-color: transparent;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.ff-input-clear:hover {
+  color: #111827;
+  background-color: #f3f4f6;
+}
+
+.ff-input-clear:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+/* Messages */
+.ff-input-message {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.ff-input-message--error {
+  color: #ef4444;
+}
+
+.ff-input-message--helper {
+  color: #6b7280;
+}

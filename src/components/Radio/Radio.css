@@ -1,0 +1,200 @@
+/* Radio Wrapper */
+.ff-radio-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.ff-radio-wrapper--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Radio Container */
+.ff-radio-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Radio Input (Hidden) */
+.ff-radio {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* Radio Circle */
+.ff-radio-circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.ff-radio:focus-visible + .ff-radio-circle {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.ff-radio:checked + .ff-radio-circle {
+  border-color: #3b82f6;
+}
+
+.ff-radio:disabled + .ff-radio-circle {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+}
+
+.ff-radio-wrapper--error .ff-radio-circle {
+  border-color: #ef4444;
+}
+
+.ff-radio-wrapper--error .ff-radio:checked + .ff-radio-circle {
+  border-color: #ef4444;
+}
+
+/* Sizes */
+.ff-radio-circle--sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.ff-radio-circle--md {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.ff-radio-circle--lg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Radio Dot */
+.ff-radio-dot {
+  border-radius: 50%;
+  background-color: #3b82f6;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.15s ease-in-out;
+}
+
+.ff-radio--sm:checked + .ff-radio-circle .ff-radio-dot {
+  width: 0.375rem;
+  height: 0.375rem;
+}
+
+.ff-radio--md:checked + .ff-radio-circle .ff-radio-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.ff-radio--lg:checked + .ff-radio-circle .ff-radio-dot {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+
+.ff-radio:checked + .ff-radio-circle .ff-radio-dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ff-radio:disabled:checked + .ff-radio-circle .ff-radio-dot {
+  background-color: #9ca3af;
+}
+
+.ff-radio-wrapper--error .ff-radio:checked + .ff-radio-circle .ff-radio-dot {
+  background-color: #ef4444;
+}
+
+/* Radio Label */
+.ff-radio-label {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #374151;
+  line-height: 1.5;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ff-radio-label--sm {
+  font-size: 0.875rem;
+}
+
+.ff-radio-label--md {
+  font-size: 1rem;
+}
+
+.ff-radio-label--lg {
+  font-size: 1.125rem;
+}
+
+.ff-radio-label__required {
+  color: #ef4444;
+  margin-left: 0.25rem;
+}
+
+.ff-radio:disabled ~ .ff-radio-label {
+  cursor: not-allowed;
+}
+
+/* Messages */
+.ff-radio-message {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-left: 1.75rem;
+}
+
+.ff-radio-message--error {
+  color: #ef4444;
+}
+
+/* Radio Group */
+.ff-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ff-radio-group-label {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.ff-radio-group-label__required {
+  color: #ef4444;
+  margin-left: 0.25rem;
+}
+
+.ff-radio-group-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ff-radio-group-message {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.ff-radio-group-message--error {
+  color: #ef4444;
+}
+
+.ff-radio-group--disabled {
+  opacity: 0.6;
+}

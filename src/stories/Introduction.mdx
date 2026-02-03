@@ -1,0 +1,123 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+# Future Foundation Design System
+
+**Bem-vindo ao Design System da Future Foundation!**
+
+Este é o sistema de design que alimenta todo o ecossistema FF Apps, fornecendo componentes reutilizáveis, tokens de design e padrões consistentes.
+
+---
+
+## 🎨 O que você encontrará aqui
+
+### Design Tokens
+- **Colors**: Paleta completa com primary, semantic colors (success, warning, error)
+- **Spacing**: Escala de 0-64 (4px - 256px)
+- **Typography**: Font families, sizes, weights, line heights
+
+### Componentes
+
+#### Atoms (Componentes Básicos)
+- **Button**: 5 variantes, 3 tamanhos, loading state
+- **Input**: Text, email, password, number, search
+- **Select**: Dropdown selection
+- **Checkbox**: Com estado indeterminate
+- **Radio**: Radio group
+- **Switch**: Toggle switch
+- **Textarea**: Com auto-resize
+
+#### Molecules (Em desenvolvimento)
+- Card
+- Modal
+- Dropdown
+- Tabs
+- Alert
+
+#### Organisms (Planejado)
+- DataTable
+- Navigation
+- Form Builder
+
+---
+
+## 🚀 Como usar
+
+### Instalação
+
+```bash
+npm install @ff/design-system
+```
+
+### Importação
+
+```tsx
+import { Button, Input, Select } from '@ff/design-system';
+
+function MyComponent() {
+  return (
+    <div>
+      <Input label="Nome" placeholder="Digite seu nome" />
+      <Button variant="primary">Enviar</Button>
+    </div>
+  );
+}
+```
+
+### Design Tokens
+
+```tsx
+import { tokens } from '@ff/design-system';
+
+const styles = {
+  color: tokens.colors.primary[600],
+  padding: tokens.spacing[4],
+  fontSize: tokens.typography.fontSize.base,
+};
+```
+
+---
+
+## 📚 Navegação
+
+Use o menu lateral para explorar:
+
+1. **Introduction** (você está aqui)
+2. **Tokens** - Design tokens disponíveis
+3. **Components** - Todos os componentes UI
+4. **Examples** - Exemplos de uso
+
+---
+
+## 🎯 Filosofia do Design System
+
+### Acessibilidade em primeiro lugar
+- WCAG 2.1 AA compliant
+- Keyboard navigation
+- Screen reader support
+- ARIA attributes
+
+### Composição sobre configuração
+- Componentes pequenos e focados
+- Fácil de combinar
+- Props intuitivos
+
+### Consistência visual
+- Tokens compartilhados
+- Variantes padronizadas
+- Temas (light/dark)
+
+---
+
+## 🔗 Links Úteis
+
+- [GitHub Repository](https://github.com/rodrigofaerman/ff-design-system)
+- [NPM Package](https://www.npmjs.com/package/@ff/design-system)
+- [Documentation](https://github.com/rodrigofaerman/ff-design-system#readme)
+
+---
+
+**Versão:** 1.0.0
+**Última atualização:** 2026-02-03
+**Mantido por:** Future Foundation

@@ -1,0 +1,146 @@
+/* Switch Wrapper */
+.ff-switch-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ff-switch-wrapper--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.ff-switch-wrapper--label-left {
+  flex-direction: row-reverse;
+}
+
+/* Switch Container */
+.ff-switch-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Switch Input (Hidden) */
+.ff-switch {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* Switch Track */
+.ff-switch-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  background-color: #d1d5db;
+  border-radius: 9999px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.ff-switch:focus-visible + .ff-switch-track {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.ff-switch:checked + .ff-switch-track {
+  background-color: #3b82f6;
+}
+
+.ff-switch:disabled + .ff-switch-track {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+}
+
+.ff-switch:disabled:checked + .ff-switch-track {
+  background-color: #9ca3af;
+}
+
+/* Sizes */
+.ff-switch-track--sm {
+  width: 2rem;
+  height: 1.125rem;
+  padding: 0.125rem;
+}
+
+.ff-switch-track--md {
+  width: 2.75rem;
+  height: 1.5rem;
+  padding: 0.125rem;
+}
+
+.ff-switch-track--lg {
+  width: 3.5rem;
+  height: 2rem;
+  padding: 0.1875rem;
+}
+
+/* Switch Thumb */
+.ff-switch-thumb {
+  display: block;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease-in-out;
+}
+
+.ff-switch-thumb--sm {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.ff-switch-thumb--md {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.ff-switch-thumb--lg {
+  width: 1.625rem;
+  height: 1.625rem;
+}
+
+.ff-switch--sm:checked + .ff-switch-track .ff-switch-thumb {
+  transform: translateX(0.875rem);
+}
+
+.ff-switch--md:checked + .ff-switch-track .ff-switch-thumb {
+  transform: translateX(1.25rem);
+}
+
+.ff-switch--lg:checked + .ff-switch-track .ff-switch-thumb {
+  transform: translateX(1.5rem);
+}
+
+/* Switch Label */
+.ff-switch-label {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #374151;
+  line-height: 1.5;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ff-switch-label--sm {
+  font-size: 0.875rem;
+}
+
+.ff-switch-label--md {
+  font-size: 1rem;
+}
+
+.ff-switch-label--lg {
+  font-size: 1.125rem;
+}
+
+.ff-switch-label__required {
+  color: #ef4444;
+  margin-left: 0.25rem;
+}
+
+.ff-switch:disabled ~ .ff-switch-label {
+  cursor: not-allowed;
+}
