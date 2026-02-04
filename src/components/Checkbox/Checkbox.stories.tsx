@@ -174,3 +174,34 @@ export const Showcase: Story = {
     layout: 'padded',
   },
 };
+
+// Mobile & Responsive Examples
+export const MobileSmall: Story = {
+  args: {
+    label: 'I agree to the terms and conditions',
+    size: 'lg',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+    layout: 'padded',
+  },
+};
+
+export const MobileList: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
+      <Checkbox label="Enable push notifications" size="lg" defaultChecked />
+      <Checkbox label="Enable email notifications" size="lg" />
+      <Checkbox label="Enable SMS notifications" size="lg" />
+      <Checkbox label="Marketing communications" size="lg" helperText="Receive updates about new features" />
+    </div>
+  ),
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
+    layout: 'padded',
+  },
+};

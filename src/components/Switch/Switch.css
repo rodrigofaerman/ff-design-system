@@ -1,12 +1,19 @@
+/* Switch Field (Outer Container) */
+.ff-switch-field {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--spacing-1-5);
+}
+
 /* Switch Wrapper */
 .ff-switch-wrapper {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--spacing-3);
 }
 
 .ff-switch-wrapper--disabled {
-  opacity: 0.6;
+  opacity: var(--opacity-60);
   cursor: not-allowed;
 }
 
@@ -36,56 +43,64 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  background-color: #d1d5db;
-  border-radius: 9999px;
-  transition: all 0.2s ease-in-out;
+  background-color: var(--color-gray-300);
+  border-radius: var(--border-radius-full);
+  transition: all var(--transition-duration-base) var(--transition-timing-ease-in-out);
   cursor: pointer;
+}
+
+.ff-switch-track:hover:not(.ff-switch:disabled + *) {
+  background-color: var(--color-gray-400);
 }
 
 .ff-switch:focus-visible + .ff-switch-track {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: var(--shadow-focus-primary);
 }
 
 .ff-switch:checked + .ff-switch-track {
-  background-color: #3b82f6;
+  background-color: var(--color-primary-500);
+}
+
+.ff-switch:checked + .ff-switch-track:hover:not(.ff-switch:disabled + *) {
+  background-color: var(--color-primary-600);
 }
 
 .ff-switch:disabled + .ff-switch-track {
-  background-color: #f3f4f6;
+  background-color: var(--color-gray-100);
   cursor: not-allowed;
 }
 
 .ff-switch:disabled:checked + .ff-switch-track {
-  background-color: #9ca3af;
+  background-color: var(--color-gray-400);
 }
 
 /* Sizes */
 .ff-switch-track--sm {
   width: 2rem;
   height: 1.125rem;
-  padding: 0.125rem;
+  padding: var(--spacing-0-5);
 }
 
 .ff-switch-track--md {
   width: 2.75rem;
   height: 1.5rem;
-  padding: 0.125rem;
+  padding: var(--spacing-0-5);
 }
 
 .ff-switch-track--lg {
   width: 3.5rem;
   height: 2rem;
-  padding: 0.1875rem;
+  padding: var(--spacing-1);
 }
 
 /* Switch Thumb */
 .ff-switch-thumb {
   display: block;
-  background-color: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease-in-out;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-full);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-duration-base) var(--transition-timing-ease-in-out);
 }
 
 .ff-switch-thumb--sm {
@@ -118,29 +133,69 @@
 /* Switch Label */
 .ff-switch-label {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: #374151;
-  line-height: 1.5;
+  color: var(--color-gray-700);
+  line-height: var(--line-height-normal);
   cursor: pointer;
   user-select: none;
 }
 
 .ff-switch-label--sm {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
 }
 
 .ff-switch-label--md {
-  font-size: 1rem;
+  font-size: var(--font-size-base);
 }
 
 .ff-switch-label--lg {
-  font-size: 1.125rem;
+  font-size: var(--font-size-lg);
 }
 
 .ff-switch-label__required {
-  color: #ef4444;
-  margin-left: 0.25rem;
+  color: var(--color-error-500);
+  margin-left: var(--spacing-1);
 }
 
 .ff-switch:disabled ~ .ff-switch-label {
   cursor: not-allowed;
+}
+
+/* Variants */
+.ff-switch-wrapper--error .ff-switch:checked + .ff-switch-track {
+  background-color: var(--color-error-500);
+}
+
+.ff-switch-wrapper--error .ff-switch:checked + .ff-switch-track:hover:not(.ff-switch:disabled + *) {
+  background-color: var(--color-error-600);
+}
+
+.ff-switch-wrapper--error .ff-switch:focus-visible + .ff-switch-track {
+  box-shadow: var(--shadow-focus-error);
+}
+
+.ff-switch-wrapper--success .ff-switch:checked + .ff-switch-track {
+  background-color: var(--color-success-500);
+}
+
+.ff-switch-wrapper--success .ff-switch:checked + .ff-switch-track:hover:not(.ff-switch:disabled + *) {
+  background-color: var(--color-success-600);
+}
+
+.ff-switch-wrapper--success .ff-switch:focus-visible + .ff-switch-track {
+  box-shadow: var(--shadow-focus-success);
+}
+
+/* Messages */
+.ff-switch-message {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+.ff-switch-message--error {
+  color: var(--color-error-500);
+}
+
+.ff-switch-message--helper {
+  color: var(--color-gray-500);
 }

@@ -138,3 +138,68 @@ export const AllSizes: Story = {
     </div>
   ),
 };
+
+// Mobile & Responsive Examples
+export const MobileSmall: Story = {
+  args: {
+    variant: 'primary',
+    fullWidth: true,
+    children: 'Tap to Continue',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+    layout: 'padded',
+  },
+};
+
+export const MobileLarge: Story = {
+  args: {
+    variant: 'primary',
+    fullWidth: true,
+    children: 'Submit Form',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
+    layout: 'padded',
+  },
+};
+
+export const Tablet: Story = {
+  args: {
+    variant: 'primary',
+    size: 'lg',
+    children: 'Continue',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    layout: 'centered',
+  },
+};
+
+export const MobileActionButtons: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', width: '100%' }}>
+      <Button variant="primary" fullWidth size="lg">
+        Primary Action
+      </Button>
+      <Button variant="secondary" fullWidth size="lg">
+        Secondary Action
+      </Button>
+      <Button variant="outline" fullWidth size="lg">
+        Cancel
+      </Button>
+    </div>
+  ),
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
+    layout: 'padded',
+  },
+};

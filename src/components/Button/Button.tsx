@@ -60,6 +60,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className
         )}
         disabled={disabled || loading}
+        aria-busy={loading}
+        aria-live={loading ? 'polite' : undefined}
         {...props}
       >
         {loading && <span className="ff-button__spinner" />}

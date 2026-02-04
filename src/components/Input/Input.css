@@ -2,7 +2,7 @@
 .ff-input-wrapper {
   display: inline-flex;
   flex-direction: column;
-  gap: 0.375rem;
+  gap: var(--spacing-1-5);
 }
 
 .ff-input-wrapper--full-width {
@@ -12,15 +12,15 @@
 /* Input Label */
 .ff-input-label {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #374151;
-  line-height: 1.5;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-700);
+  line-height: var(--line-height-normal);
 }
 
 .ff-input-label__required {
-  color: #ef4444;
-  margin-left: 0.25rem;
+  color: var(--color-error-500);
+  margin-left: var(--spacing-1);
 }
 
 /* Input Container */
@@ -28,60 +28,72 @@
   position: relative;
   display: flex;
   align-items: center;
-  background-color: #ffffff;
-  border: 1px solid #d1d5db;
-  border-radius: 0.375rem;
-  transition: all 0.15s ease-in-out;
+  background-color: var(--color-white);
+  border: var(--border-width-1) solid var(--color-gray-300);
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-fast);
 }
 
 .ff-input-container:focus-within:not(.ff-input-container--disabled) {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: var(--color-primary-500);
+  box-shadow: var(--shadow-focus-primary);
+}
+
+.ff-input-container:hover:not(.ff-input-container--disabled):not(:focus-within) {
+  border-color: var(--color-gray-400);
 }
 
 .ff-input-container--disabled {
-  background-color: #f3f4f6;
+  background-color: var(--color-gray-100);
   cursor: not-allowed;
 }
 
 /* Sizes */
 .ff-input-container--sm {
   min-height: 2rem;
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
 }
 
 .ff-input-container--md {
   min-height: 2.5rem;
-  font-size: 1rem;
+  font-size: var(--font-size-base);
 }
 
 .ff-input-container--lg {
   min-height: 3rem;
-  font-size: 1.125rem;
+  font-size: var(--font-size-lg);
 }
 
 /* Variants */
 .ff-input-container--default {
-  border-color: #d1d5db;
+  border-color: var(--color-gray-300);
 }
 
 .ff-input-container--error {
-  border-color: #ef4444;
+  border-color: var(--color-error-500);
 }
 
 .ff-input-container--error:focus-within:not(.ff-input-container--disabled) {
-  border-color: #ef4444;
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  border-color: var(--color-error-500);
+  box-shadow: var(--shadow-focus-error);
+}
+
+.ff-input-container--error:hover:not(.ff-input-container--disabled):not(:focus-within) {
+  border-color: var(--color-error-600);
 }
 
 .ff-input-container--success {
-  border-color: #10b981;
+  border-color: var(--color-success-500);
 }
 
 .ff-input-container--success:focus-within:not(.ff-input-container--disabled) {
-  border-color: #10b981;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  border-color: var(--color-success-500);
+  box-shadow: var(--shadow-focus-success);
+}
+
+.ff-input-container--success:hover:not(.ff-input-container--disabled):not(:focus-within) {
+  border-color: var(--color-success-600);
 }
 
 /* Input Element */
@@ -89,31 +101,31 @@
   flex: 1;
   width: 100%;
   min-width: 0;
-  padding: 0.5rem 0.75rem;
+  padding: var(--spacing-2) var(--spacing-3);
   font-family: inherit;
   font-size: inherit;
-  line-height: 1.5;
-  color: #111827;
+  line-height: var(--line-height-normal);
+  color: var(--color-gray-900);
   background-color: transparent;
   border: none;
   outline: none;
 }
 
 .ff-input::placeholder {
-  color: #9ca3af;
+  color: var(--color-gray-400);
 }
 
 .ff-input:disabled {
   cursor: not-allowed;
-  color: #6b7280;
+  color: var(--color-gray-500);
 }
 
 .ff-input-container--sm .ff-input {
-  padding: 0.375rem 0.625rem;
+  padding: var(--spacing-1-5) var(--spacing-2-5);
 }
 
 .ff-input-container--lg .ff-input {
-  padding: 0.625rem 1rem;
+  padding: var(--spacing-2-5) var(--spacing-4);
 }
 
 /* Prefix & Suffix */
@@ -121,40 +133,40 @@
 .ff-input-suffix {
   display: flex;
   align-items: center;
-  color: #6b7280;
+  color: var(--color-gray-500);
   flex-shrink: 0;
 }
 
 .ff-input-prefix {
-  padding-left: 0.75rem;
+  padding-left: var(--spacing-3);
 }
 
 .ff-input-suffix {
-  padding-right: 0.75rem;
+  padding-right: var(--spacing-3);
 }
 
 .ff-input-container--sm .ff-input-prefix {
-  padding-left: 0.625rem;
+  padding-left: var(--spacing-2-5);
 }
 
 .ff-input-container--sm .ff-input-suffix {
-  padding-right: 0.625rem;
+  padding-right: var(--spacing-2-5);
 }
 
 .ff-input-container--lg .ff-input-prefix {
-  padding-left: 1rem;
+  padding-left: var(--spacing-4);
 }
 
 .ff-input-container--lg .ff-input-suffix {
-  padding-right: 1rem;
+  padding-right: var(--spacing-4);
 }
 
 .ff-input-container--has-prefix .ff-input {
-  padding-left: 0.25rem;
+  padding-left: var(--spacing-1);
 }
 
 .ff-input-container--has-suffix .ff-input {
-  padding-right: 0.25rem;
+  padding-right: var(--spacing-1);
 }
 
 /* Clear Button */
@@ -164,39 +176,39 @@
   justify-content: center;
   width: 1.25rem;
   height: 1.25rem;
-  margin-right: 0.5rem;
+  margin-right: var(--spacing-2);
   padding: 0;
   font-size: 1.25rem;
   line-height: 1;
-  color: #6b7280;
+  color: var(--color-gray-500);
   background-color: transparent;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: var(--border-radius-base);
   cursor: pointer;
-  transition: all 0.15s ease-in-out;
+  transition: var(--transition-fast);
 }
 
 .ff-input-clear:hover {
-  color: #111827;
-  background-color: #f3f4f6;
+  color: var(--color-gray-900);
+  background-color: var(--color-gray-100);
 }
 
 .ff-input-clear:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 0 2px var(--color-primary-500);
 }
 
 /* Messages */
 .ff-input-message {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
 }
 
 .ff-input-message--error {
-  color: #ef4444;
+  color: var(--color-error-500);
 }
 
 .ff-input-message--helper {
-  color: #6b7280;
+  color: var(--color-gray-500);
 }

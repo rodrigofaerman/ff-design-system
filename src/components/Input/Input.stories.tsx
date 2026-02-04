@@ -217,3 +217,51 @@ export const Showcase: Story = {
     layout: 'padded',
   },
 };
+
+// Mobile & Responsive Examples
+export const MobileSmall: Story = {
+  args: {
+    label: 'Email',
+    placeholder: 'you@example.com',
+    type: 'email',
+    fullWidth: true,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+    layout: 'padded',
+  },
+};
+
+export const MobileLarge: Story = {
+  args: {
+    label: 'Phone Number',
+    placeholder: '+1 (555) 000-0000',
+    type: 'tel',
+    fullWidth: true,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
+    layout: 'padded',
+  },
+};
+
+export const MobileForm: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
+      <Input label="Full Name" placeholder="John Doe" fullWidth required />
+      <Input label="Email" placeholder: "you@example.com" type="email" fullWidth required />
+      <Input label="Phone" placeholder="+1 (555) 000-0000" type="tel" fullWidth />
+      <Input label="Website" placeholder="yoursite.com" prefix="https://" fullWidth />
+    </div>
+  ),
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
+    layout: 'padded',
+  },
+};

@@ -4,6 +4,11 @@ import './Switch.css';
 
 export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
   /**
+   * Switch variant
+   */
+  variant?: 'default' | 'error' | 'success';
+
+  /**
    * Switch size
    */
   size?: 'sm' | 'md' | 'lg';
@@ -17,6 +22,16 @@ export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
    * Label position
    */
   labelPosition?: 'left' | 'right';
+
+  /**
+   * Error message
+   */
+  error?: string;
+
+  /**
+   * Helper text
+   */
+  helperText?: string;
 }
 
 /**
@@ -25,9 +40,12 @@ export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
 export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
   (
     {
+      variant = 'default',
       size = 'md',
       label,
       labelPosition = 'right',
+      error,
+      helperText,
       disabled,
       required,
       className,
@@ -37,18 +55,23 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
     ref
   ) => {
     const switchId = id || `ff-switch-${Math.random().toString(36).substr(2, 9)}`;
+    const errorId = error ? `${switchId}-error` : undefined;
+    const helperId = helperText ? `${switchId}-helper` : undefined;
+
+    const effectiveVariant = error ? 'error' : variant;
 
     return (
-      <div
-        className={clsx(
-          'ff-switch-wrapper',
-          {
-            'ff-switch-wrapper--disabled': disabled,
-            'ff-switch-wrapper--label-left': label && labelPosition === 'left',
-          },
-          className
-        )}
-      >
+      <div className={clsx('ff-switch-field', className)}>
+        <div
+          className={clsx(
+            'ff-switch-wrapper',
+            `ff-switch-wrapper--${effectiveVariant}`,
+            {
+              'ff-switch-wrapper--disabled': disabled,
+              'ff-switch-wrapper--label-left': label && labelPosition === 'left',
+            }
+          )}
+        >
         {label && labelPosition === 'left' && (
           <label htmlFor={switchId} className={clsx('ff-switch-label', `ff-switch-label--${size}`)}>
             {label}
@@ -65,7 +88,9 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
             className={clsx('ff-switch', `ff-switch--${size}`)}
             disabled={disabled}
             required={required}
-            aria-checked={props.checked || props.defaultChecked || false}
+            aria-checked={props.checked !== undefined ? props.checked : undefined}
+            aria-invalid={error ? 'true' : 'false'}
+            aria-describedby={clsx(errorId, helperId).trim() || undefined}
             {...props}
           />
 
@@ -82,6 +107,19 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
             {label}
             {required && <span className="ff-switch-label__required">*</span>}
           </label>
+        )}
+        </div>
+
+        {error && (
+          <div id={errorId} className="ff-switch-message ff-switch-message--error">
+            {error}
+          </div>
+        )}
+
+        {helperText && !error && (
+          <div id={helperId} className="ff-switch-message ff-switch-message--helper">
+            {helperText}
+          </div>
         )}
       </div>
     );

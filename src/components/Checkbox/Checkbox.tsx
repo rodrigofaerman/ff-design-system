@@ -4,6 +4,11 @@ import './Checkbox.css';
 
 export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
   /**
+   * Checkbox variant
+   */
+  variant?: 'default' | 'error' | 'success';
+
+  /**
    * Checkbox size
    */
   size?: 'sm' | 'md' | 'lg';
@@ -19,6 +24,11 @@ export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputE
   error?: string;
 
   /**
+   * Helper text
+   */
+  helperText?: string;
+
+  /**
    * Indeterminate state
    */
   indeterminate?: boolean;
@@ -30,9 +40,11 @@ export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputE
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
+      variant = 'default',
       size = 'md',
       label,
       error,
+      helperText,
       indeterminate = false,
       disabled,
       required,
@@ -44,6 +56,9 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   ) => {
     const checkboxId = id || `ff-checkbox-${Math.random().toString(36).substr(2, 9)}`;
     const errorId = error ? `${checkboxId}-error` : undefined;
+    const helperId = helperText ? `${checkboxId}-helper` : undefined;
+
+    const effectiveVariant = error ? 'error' : variant;
 
     const internalRef = React.useRef<HTMLInputElement>(null);
     const combinedRef = ref || internalRef;
@@ -59,9 +74,9 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       <div
         className={clsx(
           'ff-checkbox-wrapper',
+          `ff-checkbox-wrapper--${effectiveVariant}`,
           {
             'ff-checkbox-wrapper--disabled': disabled,
-            'ff-checkbox-wrapper--error': error,
           },
           className
         )}
@@ -75,7 +90,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             disabled={disabled}
             required={required}
             aria-invalid={error ? 'true' : 'false'}
-            aria-describedby={errorId}
+            aria-describedby={clsx(errorId, helperId).trim() || undefined}
             {...props}
           />
 
@@ -125,6 +140,12 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         {error && (
           <div id={errorId} className="ff-checkbox-message ff-checkbox-message--error">
             {error}
+          </div>
+        )}
+
+        {helperText && !error && (
+          <div id={helperId} className="ff-checkbox-message ff-checkbox-message--helper">
+            {helperText}
           </div>
         )}
       </div>

@@ -27,6 +27,42 @@ const preview: Preview = {
         },
       ],
     },
+    viewport: {
+      viewports: {
+        mobile1: {
+          name: 'Small Mobile',
+          styles: {
+            width: '320px',
+            height: '568px',
+          },
+          type: 'mobile',
+        },
+        mobile2: {
+          name: 'Large Mobile',
+          styles: {
+            width: '375px',
+            height: '667px',
+          },
+          type: 'mobile',
+        },
+        tablet: {
+          name: 'Tablet',
+          styles: {
+            width: '768px',
+            height: '1024px',
+          },
+          type: 'tablet',
+        },
+        desktop: {
+          name: 'Desktop',
+          styles: {
+            width: '1280px',
+            height: '800px',
+          },
+          type: 'desktop',
+        },
+      },
+    },
   },
 };
 

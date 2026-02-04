@@ -237,3 +237,35 @@ export const Showcase: Story = {
     layout: 'padded',
   },
 };
+
+// Mobile & Responsive Examples
+export const MobileSmall: Story = {
+  args: {
+    label: 'Standard shipping',
+    size: 'lg',
+    name: 'mobile-shipping',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+    layout: 'padded',
+  },
+};
+
+export const MobileRadioGroup: Story = {
+  render: () => (
+    <RadioGroup name="mobile-payment" label="Payment Method" helperText="Choose your preferred payment method">
+      <Radio value="credit" label="Credit Card" size="lg" />
+      <Radio value="debit" label="Debit Card" size="lg" />
+      <Radio value="paypal" label="PayPal" size="lg" />
+      <Radio value="apple" label="Apple Pay" size="lg" />
+    </RadioGroup>
+  ),
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
+    layout: 'padded',
+  },
+};

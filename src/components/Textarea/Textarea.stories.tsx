@@ -264,3 +264,54 @@ export const Showcase: Story = {
     layout: 'padded',
   },
 };
+
+// Mobile & Responsive Examples
+export const MobileSmall: Story = {
+  args: {
+    label: 'Message',
+    placeholder: 'Type your message...',
+    fullWidth: true,
+    rows: 4,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+    layout: 'padded',
+  },
+};
+
+export const MobileLarge: Story = {
+  args: {
+    label: 'Feedback',
+    placeholder: 'Share your thoughts...',
+    fullWidth: true,
+    showCount: true,
+    maxLength: 500,
+    helperText: 'Please provide detailed feedback',
+    rows: 6,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
+    layout: 'padded',
+  },
+};
+
+export const MobileAutoResize: Story = {
+  args: {
+    label: 'Comment',
+    placeholder: 'Add a comment...',
+    fullWidth: true,
+    autoResize: true,
+    showCount: true,
+    maxLength: 280,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
+    layout: 'padded',
+  },
+};

@@ -4,6 +4,11 @@ import './Select.css';
 
 export interface SelectProps extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
   /**
+   * Select variant
+   */
+  variant?: 'default' | 'error' | 'success';
+
+  /**
    * Select size
    */
   size?: 'sm' | 'md' | 'lg';
@@ -45,6 +50,7 @@ export interface SelectProps extends Omit<React.SelectHTMLAttributes<HTMLSelectE
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   (
     {
+      variant = 'default',
       size = 'md',
       label,
       error,
@@ -63,6 +69,8 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     const selectId = id || `ff-select-${Math.random().toString(36).substr(2, 9)}`;
     const errorId = error ? `${selectId}-error` : undefined;
     const helperId = helperText ? `${selectId}-helper` : undefined;
+
+    const effectiveVariant = error ? 'error' : variant;
 
     return (
       <div
@@ -85,9 +93,9 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         <div
           className={clsx(
             'ff-select-container',
+            `ff-select-container--${effectiveVariant}`,
             `ff-select-container--${size}`,
             {
-              'ff-select-container--error': error,
               'ff-select-container--disabled': disabled,
             }
           )}

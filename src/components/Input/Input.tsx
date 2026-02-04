@@ -157,7 +157,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               className="ff-input-clear"
               onClick={handleClear}
               aria-label="Clear input"
-              tabIndex={-1}
             >
               ×
             </button>

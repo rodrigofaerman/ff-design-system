@@ -2,11 +2,11 @@
 .ff-radio-wrapper {
   display: inline-flex;
   flex-direction: column;
-  gap: 0.375rem;
+  gap: var(--spacing-1-5);
 }
 
 .ff-radio-wrapper--disabled {
-  opacity: 0.6;
+  opacity: var(--opacity-60);
   cursor: not-allowed;
 }
 
@@ -15,7 +15,7 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--spacing-2);
 }
 
 /* Radio Input (Hidden) */
@@ -34,34 +34,59 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  background-color: #ffffff;
-  border: 2px solid #d1d5db;
-  border-radius: 50%;
-  transition: all 0.15s ease-in-out;
+  background-color: var(--color-white);
+  border: var(--border-width-2) solid var(--color-gray-300);
+  border-radius: var(--border-radius-full);
+  transition: var(--transition-fast);
   cursor: pointer;
+}
+
+.ff-radio-circle:hover:not(.ff-radio:disabled + *) {
+  border-color: var(--color-gray-400);
 }
 
 .ff-radio:focus-visible + .ff-radio-circle {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: var(--color-primary-500);
+  box-shadow: var(--shadow-focus-primary);
 }
 
 .ff-radio:checked + .ff-radio-circle {
-  border-color: #3b82f6;
+  border-color: var(--color-primary-500);
+}
+
+.ff-radio:checked + .ff-radio-circle:hover:not(.ff-radio:disabled + *) {
+  border-color: var(--color-primary-600);
 }
 
 .ff-radio:disabled + .ff-radio-circle {
-  background-color: #f3f4f6;
+  background-color: var(--color-gray-100);
   cursor: not-allowed;
 }
 
+/* Variants */
 .ff-radio-wrapper--error .ff-radio-circle {
-  border-color: #ef4444;
+  border-color: var(--color-error-500);
 }
 
 .ff-radio-wrapper--error .ff-radio:checked + .ff-radio-circle {
-  border-color: #ef4444;
+  border-color: var(--color-error-500);
+}
+
+.ff-radio-wrapper--error .ff-radio:focus-visible + .ff-radio-circle {
+  box-shadow: var(--shadow-focus-error);
+}
+
+.ff-radio-wrapper--success .ff-radio-circle {
+  border-color: var(--color-success-500);
+}
+
+.ff-radio-wrapper--success .ff-radio:checked + .ff-radio-circle {
+  border-color: var(--color-success-500);
+}
+
+.ff-radio-wrapper--success .ff-radio:focus-visible + .ff-radio-circle {
+  box-shadow: var(--shadow-focus-success);
 }
 
 /* Sizes */
@@ -82,26 +107,26 @@
 
 /* Radio Dot */
 .ff-radio-dot {
-  border-radius: 50%;
-  background-color: #3b82f6;
+  border-radius: var(--border-radius-full);
+  background-color: var(--color-primary-500);
   opacity: 0;
   transform: scale(0);
-  transition: all 0.15s ease-in-out;
+  transition: var(--transition-fast);
 }
 
 .ff-radio--sm:checked + .ff-radio-circle .ff-radio-dot {
-  width: 0.375rem;
-  height: 0.375rem;
+  width: var(--spacing-1-5);
+  height: var(--spacing-1-5);
 }
 
 .ff-radio--md:checked + .ff-radio-circle .ff-radio-dot {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: var(--spacing-2);
+  height: var(--spacing-2);
 }
 
 .ff-radio--lg:checked + .ff-radio-circle .ff-radio-dot {
-  width: 0.625rem;
-  height: 0.625rem;
+  width: var(--spacing-2-5);
+  height: var(--spacing-2-5);
 }
 
 .ff-radio:checked + .ff-radio-circle .ff-radio-dot {
@@ -110,37 +135,41 @@
 }
 
 .ff-radio:disabled:checked + .ff-radio-circle .ff-radio-dot {
-  background-color: #9ca3af;
+  background-color: var(--color-gray-400);
 }
 
 .ff-radio-wrapper--error .ff-radio:checked + .ff-radio-circle .ff-radio-dot {
-  background-color: #ef4444;
+  background-color: var(--color-error-500);
+}
+
+.ff-radio-wrapper--success .ff-radio:checked + .ff-radio-circle .ff-radio-dot {
+  background-color: var(--color-success-500);
 }
 
 /* Radio Label */
 .ff-radio-label {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: #374151;
-  line-height: 1.5;
+  color: var(--color-gray-700);
+  line-height: var(--line-height-normal);
   cursor: pointer;
   user-select: none;
 }
 
 .ff-radio-label--sm {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
 }
 
 .ff-radio-label--md {
-  font-size: 1rem;
+  font-size: var(--font-size-base);
 }
 
 .ff-radio-label--lg {
-  font-size: 1.125rem;
+  font-size: var(--font-size-lg);
 }
 
 .ff-radio-label__required {
-  color: #ef4444;
-  margin-left: 0.25rem;
+  color: var(--color-error-500);
+  margin-left: var(--spacing-1);
 }
 
 .ff-radio:disabled ~ .ff-radio-label {
@@ -150,51 +179,68 @@
 /* Messages */
 .ff-radio-message {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
   margin-left: 1.75rem;
 }
 
 .ff-radio-message--error {
-  color: #ef4444;
+  color: var(--color-error-500);
+}
+
+.ff-radio-message--helper {
+  color: var(--color-gray-500);
 }
 
 /* Radio Group */
 .ff-radio-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--spacing-2);
+}
+
+/* Radio Group Variants (applied to child radios) */
+.ff-radio-group--error .ff-radio-wrapper:not([class*="ff-radio-wrapper--"]) {
+  /* Error styling inherited from group */
+}
+
+.ff-radio-group--success .ff-radio-wrapper:not([class*="ff-radio-wrapper--"]) {
+  /* Success styling inherited from group */
 }
 
 .ff-radio-group-label {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #374151;
-  line-height: 1.5;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-700);
+  line-height: var(--line-height-normal);
 }
 
 .ff-radio-group-label__required {
-  color: #ef4444;
-  margin-left: 0.25rem;
+  color: var(--color-error-500);
+  margin-left: var(--spacing-1);
 }
 
 .ff-radio-group-items {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--spacing-3);
 }
 
 .ff-radio-group-message {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.5;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
 }
 
 .ff-radio-group-message--error {
-  color: #ef4444;
+  color: var(--color-error-500);
+}
+
+.ff-radio-group-message--helper {
+  color: var(--color-gray-500);
 }
 
 .ff-radio-group--disabled {
-  opacity: 0.6;
+  opacity: var(--opacity-60);
 }

@@ -4,6 +4,11 @@ import './Radio.css';
 
 export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
   /**
+   * Radio variant
+   */
+  variant?: 'default' | 'error' | 'success';
+
+  /**
    * Radio size
    */
   size?: 'sm' | 'md' | 'lg';
@@ -17,6 +22,11 @@ export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
    * Error message
    */
   error?: string;
+
+  /**
+   * Helper text
+   */
+  helperText?: string;
 }
 
 export interface RadioGroupProps {
@@ -24,6 +34,11 @@ export interface RadioGroupProps {
    * Radio group name
    */
   name: string;
+
+  /**
+   * Radio group variant
+   */
+  variant?: 'default' | 'error' | 'success';
 
   /**
    * Label text for the group
@@ -34,6 +49,11 @@ export interface RadioGroupProps {
    * Error message
    */
   error?: string;
+
+  /**
+   * Helper text
+   */
+  helperText?: string;
 
   /**
    * Currently selected value
@@ -77,9 +97,11 @@ export interface RadioGroupProps {
 export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
   (
     {
+      variant = 'default',
       size = 'md',
       label,
       error,
+      helperText,
       disabled,
       required,
       className,
@@ -90,14 +112,17 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
   ) => {
     const radioId = id || `ff-radio-${Math.random().toString(36).substr(2, 9)}`;
     const errorId = error ? `${radioId}-error` : undefined;
+    const helperId = helperText ? `${radioId}-helper` : undefined;
+
+    const effectiveVariant = error ? 'error' : variant;
 
     return (
       <div
         className={clsx(
           'ff-radio-wrapper',
+          `ff-radio-wrapper--${effectiveVariant}`,
           {
             'ff-radio-wrapper--disabled': disabled,
-            'ff-radio-wrapper--error': error,
           },
           className
         )}
@@ -111,7 +136,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
             disabled={disabled}
             required={required}
             aria-invalid={error ? 'true' : 'false'}
-            aria-describedby={errorId}
+            aria-describedby={clsx(errorId, helperId).trim() || undefined}
             {...props}
           />
 
@@ -135,6 +160,12 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
             {error}
           </div>
         )}
+
+        {helperText && !error && (
+          <div id={helperId} className="ff-radio-message ff-radio-message--helper">
+            {helperText}
+          </div>
+        )}
       </div>
     );
   }
@@ -147,8 +178,10 @@ Radio.displayName = 'Radio';
  */
 export const RadioGroup: React.FC<RadioGroupProps> = ({
   name,
+  variant = 'default',
   label,
   error,
+  helperText,
   value,
   defaultValue,
   onChange,
@@ -159,6 +192,9 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
 }) => {
   const groupId = `ff-radio-group-${Math.random().toString(36).substr(2, 9)}`;
   const errorId = error ? `${groupId}-error` : undefined;
+  const helperId = helperText ? `${groupId}-helper` : undefined;
+
+  const effectiveVariant = error ? 'error' : variant;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
@@ -186,15 +222,15 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
     <div
       className={clsx(
         'ff-radio-group',
+        `ff-radio-group--${effectiveVariant}`,
         {
           'ff-radio-group--disabled': disabled,
-          'ff-radio-group--error': error,
         },
         className
       )}
       role="radiogroup"
       aria-labelledby={label ? `${groupId}-label` : undefined}
-      aria-describedby={errorId}
+      aria-describedby={clsx(errorId, helperId).trim() || undefined}
       aria-required={required}
     >
       {label && (
@@ -209,6 +245,12 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
       {error && (
         <div id={errorId} className="ff-radio-group-message ff-radio-group-message--error">
           {error}
+        </div>
+      )}
+
+      {helperText && !error && (
+        <div id={helperId} className="ff-radio-group-message ff-radio-group-message--helper">
+          {helperText}
         </div>
       )}
     </div>

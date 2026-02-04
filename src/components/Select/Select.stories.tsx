@@ -273,3 +273,51 @@ export const Showcase: Story = {
     layout: 'padded',
   },
 };
+
+// Mobile & Responsive Examples
+export const MobileSmall: Story = {
+  args: {
+    label: 'Country',
+    placeholder: 'Select country',
+    fullWidth: true,
+    children: (
+      <>
+        <option value="">Select country</option>
+        <option value="us">United States</option>
+        <option value="uk">United Kingdom</option>
+        <option value="ca">Canada</option>
+      </>
+    ),
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+    layout: 'padded',
+  },
+};
+
+export const MobileLarge: Story = {
+  args: {
+    label: 'Category',
+    fullWidth: true,
+    children: (
+      <>
+        <optgroup label="Electronics">
+          <option value="phone">Phones</option>
+          <option value="laptop">Laptops</option>
+        </optgroup>
+        <optgroup label="Clothing">
+          <option value="shirts">Shirts</option>
+          <option value="pants">Pants</option>
+        </optgroup>
+      </>
+    ),
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
+    layout: 'padded',
+  },
+};

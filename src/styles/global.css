@@ -3,6 +3,9 @@
  * Future Foundation Design System
  */
 
+/* Import Design Tokens */
+@import './tokens.css';
+
 * {
   box-sizing: border-box;
 }

@@ -207,3 +207,34 @@ export const Showcase: Story = {
     layout: 'padded',
   },
 };
+
+// Mobile & Responsive Examples
+export const MobileSmall: Story = {
+  args: {
+    label: 'Enable notifications',
+    size: 'lg',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+    layout: 'padded',
+  },
+};
+
+export const MobileSettings: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '100%' }}>
+      <Switch label="Push Notifications" size="lg" defaultChecked helperText="Receive instant updates" />
+      <Switch label="Email Notifications" size="lg" helperText="Daily digest emails" />
+      <Switch label="SMS Alerts" size="lg" helperText="Text message alerts" />
+      <Switch label="Dark Mode" size="lg" defaultChecked />
+    </div>
+  ),
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
+    layout: 'padded',
+  },
+};
